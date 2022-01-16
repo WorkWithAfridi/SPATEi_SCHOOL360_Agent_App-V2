@@ -175,9 +175,9 @@ class Payment {
               Provider.of<InvoiceProvider>(context, listen: false);
           invoiceProvider.collection_id =
               dataDecoded["collection_id"].toString();
-          Navigator.of(context).pushNamed(TransactionSuccess.routeName);
+          Navigator.of(context).pushReplacementNamed(TransactionSuccess.routeName);
         } else {
-          Navigator.of(context).pushNamed(TransactionError.routeName);
+          Navigator.of(context).pushReplacementNamed(TransactionError.routeName);
         }
       }
     } catch (e) {

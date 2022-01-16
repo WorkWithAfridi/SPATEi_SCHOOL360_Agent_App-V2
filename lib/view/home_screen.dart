@@ -37,34 +37,39 @@ class Homepage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          CarouselSlider.builder(
-            itemCount: homePageBackgroundListForCarouselSlider.length,
-            itemBuilder: (context, index, pageViewIndex) {
-              return SizedBox(
-                height: double.infinity,
-                width: double.infinity,
-                child: Image.asset(
-                  homePageBackgroundListForCarouselSlider[index],
-                  fit: BoxFit.fitWidth,
-                  // alignment: Alignment.topLeft,
-                  alignment: Alignment.center,
-                ),
-              );
-            },
-            options: CarouselOptions(
-              aspectRatio: 9 / 16,
-              viewportFraction: .8,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enlargeCenterPage: true,
-              scrollDirection: Axis.horizontal,
-            ),
-          ),
+          // CarouselSlider.builder(
+          //   itemCount: homePageBackgroundListForCarouselSlider.length,
+          //   itemBuilder: (context, index, pageViewIndex) {
+          //     return SizedBox(
+          //       height: double.infinity,
+          //       width: double.infinity,
+          //       child: Image.asset(
+          //         homePageBackgroundListForCarouselSlider[index],
+          //         fit: BoxFit.fitWidth,
+          //         // alignment: Alignment.topLeft,
+          //         alignment: Alignment.center,
+          //       ),
+          //     );
+          //   },
+          //   options: CarouselOptions(
+          //     aspectRatio: 9 / 16,
+          //     viewportFraction: .8,
+          //     initialPage: 0,
+          //     enableInfiniteScroll: true,
+          //     reverse: false,
+          //     autoPlay: true,
+          //     autoPlayInterval: const Duration(seconds: 3),
+          //     autoPlayAnimationDuration: const Duration(milliseconds: 800),
+          //     autoPlayCurve: Curves.fastOutSlowIn,
+          //     enlargeCenterPage: true,
+          //     scrollDirection: Axis.horizontal,
+          //   ),
+          // ),
+          SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: Lottie.asset(
+                  'lib/assets/lottieAnimation/lottieMakePayment.json')),
           Container(
             height: double.infinity,
             width: double.infinity,
@@ -115,7 +120,7 @@ class Homepage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'SPATE | SCHOOL360',
+                            'SPATE | SCHOOL 360 AGENT',
                             style: GoogleFonts.getFont(
                               'Roboto',
                               textStyle: TextStyle(
@@ -223,7 +228,7 @@ class Homepage extends StatelessWidget {
                                         width: 10,
                                       ),
                                       Text(
-                                        'Make Pay Slip Payment',
+                                        'Make PaySlip Payment',
                                         style: GoogleFonts.getFont(
                                           'Roboto',
                                           textStyle: TextStyle(
@@ -276,7 +281,10 @@ class Homepage extends StatelessWidget {
                                   height: double.infinity,
                                   width: double.infinity,
                                   child: GridPaper(
-                                    color: Theme.of(context).colorScheme.secondary.withOpacity(.1),
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary
+                                        .withOpacity(.1),
                                     divisions: 4,
                                     interval: 500,
                                     subdivisions: 8,
@@ -310,12 +318,12 @@ class Homepage extends StatelessWidget {
                                             // ),
 
                                             Lottie.asset(
-                                                'lib/assets/lottieAnimation/lottieScanner (2).json'),
+                                                'lib/assets/lottieAnimation/lottieScanner.json'),
                                             const SizedBox(
                                               width: 10,
                                             ),
                                             Text(
-                                              'Sign In with ID',
+                                              'Make Payment',
                                               style: GoogleFonts.getFont(
                                                 'Roboto',
                                                 textStyle: TextStyle(

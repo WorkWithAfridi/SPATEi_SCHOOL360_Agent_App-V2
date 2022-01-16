@@ -84,9 +84,7 @@ class TransactionSuccess extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                appData.selectedTab = 0;
-                appData.navigateToPage(0);
-                Navigator.of(context).pop(context);
+                Navigator.of(context).pop();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

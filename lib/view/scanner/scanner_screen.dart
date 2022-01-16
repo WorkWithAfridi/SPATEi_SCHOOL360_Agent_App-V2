@@ -10,6 +10,8 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:school_360_app/functions/open_webview.dart';
 import 'package:school_360_app/model/student_id_validator.dart';
 import 'package:school_360_app/provider/qrcode_data.dart';
+import 'package:school_360_app/view/default_payment/default_payment_screen.dart';
+import 'package:school_360_app/view/home_screen.dart';
 import 'package:school_360_app/view/pay_slip_payment/payment_summary_screen.dart';
 import 'package:school_360_app/view/school_hub/school_hub_screen.dart';
 
@@ -311,10 +313,8 @@ class _QRScannerState extends State<QRScanner> {
             studentIdValidator.studentInfo!.studentCode.toString();
         qrCodeData.studentName =
             studentIdValidator.studentInfo!.name.toString();
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          SchoolHub.routeName,
-          (route) => false,
+        Navigator.of(context).pushReplacementNamed(
+          DefaultPayment.routeName,
         );
       }
     }
