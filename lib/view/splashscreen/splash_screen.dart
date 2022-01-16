@@ -53,17 +53,18 @@ class _SplashScreenState extends State<SplashScreen> {
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
+                // Flexible(
+                //   flex: 1,
+                //   child: Container(
+                //     height: double.infinity,
+                //     // color: Colors.red,
+                //   ),
+                // ),
                 Flexible(
                   flex: 1,
                   child: Container(
                     height: double.infinity,
-                    // color: Colors.red,
-                  ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    height: double.infinity,
+                    alignment: Alignment.center,
                     // color: Colors.green,
                     child: Center(
                       child: SizedBox(
@@ -74,67 +75,67 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    height: double.infinity,
-                    // color: Colors.blue,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Stack(
-                          children: [
-                            Positioned(
-                              bottom: 0,
-                              child: Container(
-                                // color: Colors.pink,
-                                alignment: Alignment.center,
-                                height: MediaQuery.of(context).size.width * .1,
-                                width: MediaQuery.of(context).size.width * .3,
-                                child: Text(
-                                  'SPATEi',
-                                  style: GoogleFonts.getFont(
-                                    'Ubuntu',
-                                    textStyle: TextStyle(
-                                        color:
-                                            // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                            Colors.black.withOpacity(0.6),
-                                        fontSize: 16,
-                                        height: .9,
-                                        wordSpacing: 1,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                                // child: Image.asset('lib/assets/spatei.png'),
-                              ),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.width * .19,
-                              width: MediaQuery.of(context).size.width * .3,
-                              alignment: Alignment.center,
-                              child: Text(
-                                'from',
-                                style: GoogleFonts.getFont(
-                                  'Ubuntu',
-                                  textStyle: TextStyle(
-                                      color:
-                                          // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                          Colors.black.withOpacity(0.6),
-                                      fontSize: 10,
-                                      height: .9,
-                                      wordSpacing: 1,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                // Flexible(
+                //   flex: 1,
+                //   child: Container(
+                //     height: double.infinity,
+                //     // color: Colors.blue,
+                //     width: double.infinity,
+                //     child: Column(
+                //       crossAxisAlignment: CrossAxisAlignment.center,
+                //       mainAxisAlignment: MainAxisAlignment.end,
+                //       children: [
+                //         Stack(
+                //           children: [
+                //             Positioned(
+                //               bottom: 0,
+                //               child: Container(
+                //                 // color: Colors.pink,
+                //                 alignment: Alignment.center,
+                //                 height: MediaQuery.of(context).size.width * .1,
+                //                 width: MediaQuery.of(context).size.width * .3,
+                //                 child: Text(
+                //                   'SPATEi',
+                //                   style: GoogleFonts.getFont(
+                //                     'Ubuntu',
+                //                     textStyle: TextStyle(
+                //                         color:
+                //                             // Theme.of(context).colorScheme.background.withOpacity(0.9),
+                //                             Colors.black.withOpacity(0.6),
+                //                         fontSize: 16,
+                //                         height: .9,
+                //                         wordSpacing: 1,
+                //                         fontWeight: FontWeight.w700),
+                //                   ),
+                //                 ),
+                //                 // child: Image.asset('lib/assets/spatei.png'),
+                //               ),
+                //             ),
+                //             Container(
+                //               height: MediaQuery.of(context).size.width * .19,
+                //               width: MediaQuery.of(context).size.width * .3,
+                //               alignment: Alignment.center,
+                //               child: Text(
+                //                 'from',
+                //                 style: GoogleFonts.getFont(
+                //                   'Ubuntu',
+                //                   textStyle: TextStyle(
+                //                       color:
+                //                           // Theme.of(context).colorScheme.background.withOpacity(0.9),
+                //                           Colors.black.withOpacity(0.6),
+                //                       fontSize: 10,
+                //                       height: .9,
+                //                       wordSpacing: 1,
+                //                       fontWeight: FontWeight.w700),
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),
