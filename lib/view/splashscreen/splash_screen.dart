@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void triggerSplashScreen(BuildContext context) async {
-    await Future.delayed(const Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 800));
     Navigator.pushReplacementNamed(
       context,
       Homepage.routeName,
@@ -65,13 +65,23 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
+                    width: MediaQuery.of(context).size.width,
                     // color: Colors.green,
-                    child: Center(
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height * .4,
-                        width: MediaQuery.of(context).size.width * .4,
-                        child: Image.asset('lib/assets/logo.png'),
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          // color: Colors.black,
+                          width: 20,
+                        ),
+                        Center(
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * .4,
+                            width: MediaQuery.of(context).size.width * .4,
+                            child: Image.asset('lib/assets/logo.png'),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
