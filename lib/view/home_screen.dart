@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:school_360_app/view/scanner/scanner_screen.dart';
 
+import '../functions/globar_variables.dart';
+
 class Homepage extends StatelessWidget {
   final dropDownButtonItems = ['Report Bug', 'About Us', 'Exit'];
 
@@ -110,27 +112,16 @@ class Homepage extends StatelessWidget {
                             'EMPOWERING\nEDUCATION\nEVERYDAY',
                             style: GoogleFonts.getFont(
                               'Roboto',
-                              textStyle: const TextStyle(
-                                  color:
-                                      // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                      Colors.black,
+                              textStyle: headerTSBlack.copyWith(
+                                  fontWeight: FontWeight.w800,
                                   fontSize: 35,
-                                  height: 1,
-                                  fontWeight: FontWeight.w900),
+                                  height: .9),
                             ),
                           ),
                           Text(
-                            'SPATE | SCHOOL 360 AGENT',
-                            style: GoogleFonts.getFont(
-                              'Roboto',
-                              textStyle: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  fontSize: 10,
-                                  height: .9,
-                                  wordSpacing: 1,
-                                  fontWeight: FontWeight.w900),
-                            ),
+                            'SPATE | SCHOOL360',
+                            style: defaultHighLightedTS.copyWith(
+                                height: .8, fontWeight: FontWeight.w800),
                           ),
                           // const SizedBox(
                           //   height: 200,
@@ -165,17 +156,8 @@ class Homepage extends StatelessWidget {
                       // ),
                       Text(
                         'Please scan a QR code to continue.',
-                        style: GoogleFonts.getFont(
-                          'Ubuntu',
-                          textStyle: TextStyle(
-                              color:
-                                  // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                  Colors.black.withOpacity(0.6),
-                              fontSize: 11,
-                              height: .9,
-                              wordSpacing: 1,
-                              fontWeight: FontWeight.w700),
-                        ),
+                        style: defaultTS.copyWith(
+                            fontSize: 10, fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 0,
@@ -229,16 +211,8 @@ class Homepage extends StatelessWidget {
                                       ),
                                       Text(
                                         'Make PaySlip Payment',
-                                        style: GoogleFonts.getFont(
-                                          'Roboto',
-                                          textStyle: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .background,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
+                                        style: headerTSWhite.copyWith(
+                                            fontSize: 15),
                                       ),
                                     ],
                                   ),
@@ -322,18 +296,11 @@ class Homepage extends StatelessWidget {
                                             const SizedBox(
                                               width: 10,
                                             ),
+
                                             Text(
                                               'Make Payment',
-                                              style: GoogleFonts.getFont(
-                                                'Roboto',
-                                                textStyle: TextStyle(
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .onBackground,
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
+                                              style: headerTSBlack.copyWith(
+                                                  fontSize: 15),
                                             ),
                                           ],
                                         ),
@@ -353,25 +320,13 @@ class Homepage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 4,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'Terms & conditions',
-                            style: GoogleFonts.getFont(
-                              'Ubuntu',
-                              textStyle: TextStyle(
-                                  color:
-                                      // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                      Colors.black.withOpacity(0.6),
-                                  fontSize: 10,
-                                  height: .9,
-                                  wordSpacing: 1,
-                                  fontWeight: FontWeight.w700),
-                            ),
+                            style: defaultTS.copyWith(
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
                             width: 5,
@@ -382,8 +337,8 @@ class Homepage extends StatelessWidget {
                               'Ubuntu',
                               textStyle: TextStyle(
                                   color:
-                                      // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                      Colors.black.withOpacity(0.6),
+                                  // Theme.of(context).colorScheme.background.withOpacity(0.9),
+                                  Colors.black.withOpacity(0.6),
                                   fontSize: 10,
                                   height: .9,
                                   wordSpacing: 1,
@@ -395,17 +350,8 @@ class Homepage extends StatelessWidget {
                           ),
                           Text(
                             'Privacy policy',
-                            style: GoogleFonts.getFont(
-                              'Ubuntu',
-                              textStyle: TextStyle(
-                                  color:
-                                      // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                      Colors.black.withOpacity(0.6),
-                                  fontSize: 10,
-                                  height: .9,
-                                  wordSpacing: 1,
-                                  fontWeight: FontWeight.w700),
-                            ),
+                            style: defaultTS.copyWith(
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),

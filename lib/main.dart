@@ -23,6 +23,7 @@ import 'package:school_360_app/view/transaction_status/transaction_error_screen.
 import 'package:school_360_app/view/transaction_status/transaction_success_screen.dart';
 import 'package:school_360_app/view/school_hub/school_hub_screen.dart';
 
+import 'functions/globar_variables.dart';
 import 'view/pay_slip_payment/payment_summary_screen.dart';
 import 'view/scanner/scanner_screen.dart';
 import 'view/splashscreen/splash_screen.dart';
@@ -53,10 +54,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.black.withOpacity(.8),
-            secondary: Color(0xffFF284C),
+            primary: black,
+            secondary: red,
             onBackground: Color(0xff212121),
-            background: Color(0xffEDECEF),
+            background: white,
           ),
         ),
         initialRoute: SplashScreen.routeName,

@@ -8,7 +8,9 @@ import 'package:school_360_app/provider/dashboard.dart';
 import 'package:school_360_app/provider/invoice.dart';
 import 'package:school_360_app/provider/qrcode_data.dart';
 import 'package:school_360_app/provider/school_hub_payment.dart';
-import 'package:school_360_app/view/default_payment/payment_details_page.dart';
+import 'package:school_360_app/view/school_hub/tabs/payment/payment_details_page.dart';
+
+import '../../functions/globar_variables.dart';
 
 class DefaultPayment extends StatefulWidget {
   static const routeName = '/default_payment';
@@ -52,43 +54,36 @@ class _DefaultPaymentState extends State<DefaultPayment>
 
   @override
   void initState() {
-    getData();
     super.initState();
+    getData();
+    tabController = TabController(length: 2, vsync: this);
   }
 
+  late TabController tabController;
+  bool isLoading=false;
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          // backgroundColor: Theme.of(context).colorScheme.primary,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: Theme.of(context).colorScheme.background,
-              size: 25,
-            ),
-          ),
-          centerTitle: true,
-          title: Text(
-            'PAYMENT',
-            style: GoogleFonts.getFont(
-              'Ubuntu',
-              textStyle: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w800,
-                color: Theme.of(context).colorScheme.background,
-              ),
-            ),
+      appBar: AppBar(
+        backgroundColor: black,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: white,
+            size: 25,
           ),
         ),
+        centerTitle: true,
+        title: Text(
+          'PAYMENT',
+          style: GoogleFonts.getFont('Roboto', textStyle: headerTSWhite),
+        ),
       ),
+      backgroundColor: white,
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Consumer<SchoolHubPaymentProvider>(
@@ -99,7 +94,7 @@ class _DefaultPaymentState extends State<DefaultPayment>
                   height: double.infinity,
                   width: double.infinity,
                   child: GridPaper(
-                    color: Colors.black.withOpacity(0.08),
+                    color: red.withOpacity(0.05),
                     divisions: 4,
                     interval: 500,
                     subdivisions: 8,
@@ -145,19 +140,14 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               SizedBox(
-                                                height: 25,
+                                                height: 10,
                                               ),
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.symmetric(
                                                         horizontal: 20),
-                                                child: Text(
-                                                  '💳 Payment',
-                                                  style: GoogleFonts.getFont(
-                                                      'Ubuntu',
-                                                      textStyle:
-                                                          headerTextStyleBlack),
-                                                ),
+                                                child: Text('💳 Payment',
+                                                    style: headerTSBlack),
                                               ),
                                               Stepper(
                                                 steps: [
@@ -176,18 +166,16 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                           TextSpan(
                                                             text:
                                                                 'Please select a ',
-                                                            style:
-                                                                normalTextStyle,
+                                                            style: defaultTS,
                                                           ),
                                                           TextSpan(
                                                               text: 'Year ',
                                                               style:
-                                                                  normalHighLightTextStyle),
+                                                                  defaultHighLightedTS),
                                                           TextSpan(
                                                               text:
                                                                   'to continue.',
-                                                              style:
-                                                                  normalTextStyle),
+                                                              style: defaultTS),
                                                         ],
                                                       ),
                                                     ),
@@ -220,6 +208,12 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                               child:
                                                                   DropdownButtonHideUnderline(
                                                                 child: DropdownButton(
+                                                                    style:
+                                                                        defaultTS,
+                                                                    dropdownColor:
+                                                                        white,
+                                                                    elevation:
+                                                                        4,
                                                                     isExpanded:
                                                                         true,
                                                                     value: provider
@@ -255,18 +249,16 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                           TextSpan(
                                                             text:
                                                                 'Please select a ',
-                                                            style:
-                                                                normalTextStyle,
+                                                            style: defaultTS,
                                                           ),
                                                           TextSpan(
                                                               text: 'Month ',
                                                               style:
-                                                                  normalHighLightTextStyle),
+                                                                  defaultHighLightedTS),
                                                           TextSpan(
                                                               text:
                                                                   'to continue.',
-                                                              style:
-                                                                  normalTextStyle),
+                                                              style: defaultTS),
                                                         ],
                                                       ),
                                                     ),
@@ -302,6 +294,12 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                     child:
                                                                         DropdownButtonHideUnderline(
                                                                       child: DropdownButton(
+                                                                          style:
+                                                                              defaultTS,
+                                                                          dropdownColor:
+                                                                              white,
+                                                                          elevation:
+                                                                              4,
                                                                           isExpanded:
                                                                               true,
                                                                           value: provider
@@ -326,7 +324,7 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                             ? true
                                                             : false,
                                                     title: Text('Bill Summary.',
-                                                        style: normalTextStyle),
+                                                        style: defaultTS),
                                                     content: provider
                                                             .showLoadingForStepThree
                                                         ? showLoading()
@@ -340,7 +338,7 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                               children: [
                                                                 Text('Showing ',
                                                                     style:
-                                                                        normalTextStyle),
+                                                                        defaultTS),
                                                                 Padding(
                                                                   padding: const EdgeInsets
                                                                           .only(
@@ -348,13 +346,13 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                   child: Text(
                                                                     'Payment Summary',
                                                                     style:
-                                                                        headerTextStyleBlack,
+                                                                        headerTSBlack,
                                                                   ),
                                                                 ),
                                                                 Text(
                                                                     'for the month: ${provider.selectedMonth} and year: ${provider.selectedYear}.',
                                                                     style:
-                                                                        normalTextStyle),
+                                                                        defaultTS),
                                                                 const SizedBox(
                                                                   height: 10,
                                                                 ),
@@ -370,12 +368,12 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                           text:
                                                                               'Name: ',
                                                                           style:
-                                                                              normalTextStyle),
+                                                                              defaultTS),
                                                                       TextSpan(
                                                                           text:
                                                                               '${provider.data_model_for_fees.student_info.name}.',
                                                                           style:
-                                                                              normalHighLightTextStyle),
+                                                                              defaultHighLightedTS),
                                                                     ],
                                                                   ),
                                                                 ),
@@ -391,12 +389,12 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                           text:
                                                                               'Receipt number: ',
                                                                           style:
-                                                                              normalTextStyle),
+                                                                              defaultTS),
                                                                       TextSpan(
                                                                           text:
                                                                               '${provider.data_model_for_fees.fees_data.receipt_no}.',
                                                                           style:
-                                                                              normalHighLightTextStyle),
+                                                                              defaultHighLightedTS),
                                                                     ],
                                                                   ),
                                                                 ),
@@ -420,49 +418,45 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                             TextSpan>[
                                                                           TextSpan(
                                                                               text: 'Due: ',
-                                                                              style: normalTextStyle),
+                                                                              style: defaultTS),
                                                                           TextSpan(
                                                                               text: '${provider.total}',
-                                                                              style: normalHighLightTextStyle),
+                                                                              style: defaultHighLightedTS),
                                                                           TextSpan(
-                                                                            text:
-                                                                                'TK.',
-                                                                            style:
-                                                                                GoogleFonts.getFont(
-                                                                              'Ubuntu',
-                                                                              textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                          ),
+                                                                              text: 'TK.',
+                                                                              style: defaultTS),
                                                                         ],
                                                                       ),
                                                                     ),
-                                                                    GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        Navigator.of(context)
-                                                                            .pushNamed(PaymentDetailsPage.routeName);
-                                                                      },
-                                                                      child:
-                                                                          Text(
-                                                                        'Payment breakdown',
-                                                                        style: GoogleFonts
-                                                                            .getFont(
-                                                                          'Ubuntu',
-                                                                          textStyle:
-                                                                              TextStyle(
-                                                                            decoration:
-                                                                                TextDecoration.underline,
-                                                                            fontSize:
-                                                                                14,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            color:
-                                                                                Theme.of(context).colorScheme.secondary,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
                                                                   ],
+                                                                ),
+                                                                Container(
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .centerRight,
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pushNamed(
+                                                                              PaymentDetailsPage.routeName);
+                                                                    },
+                                                                    child: Chip(
+                                                                      elevation:
+                                                                          3,
+                                                                      backgroundColor:
+                                                                          red,
+                                                                      label: Text(
+                                                                          'Payment breakdown',
+                                                                          style:
+                                                                              headerTSWhite.copyWith(fontSize: 14)),
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ],
                                                             ),
@@ -475,7 +469,7 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                             : false,
                                                     title: Text(
                                                       'Make Payment.',
-                                                      style: normalTextStyle,
+                                                      style: defaultTS,
                                                     ),
                                                     content: SizedBox(
                                                       width: double.infinity,
@@ -489,11 +483,10 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                         children: [
                                                           Text('Checkout.',
                                                               style:
-                                                                  headerTextStyleBlack),
+                                                                  headerTSBlack),
                                                           Text(
                                                               'Please make your payment by pressing continue.',
-                                                              style:
-                                                                  normalTextStyle)
+                                                              style: defaultTS)
                                                         ],
                                                       ),
                                                     ),
@@ -504,17 +497,10 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                     if (provider.selectedYear ==
                                                         'Select academic year') {
                                                       var snackBar = SnackBar(
-                                                        backgroundColor:
-                                                            Theme.of(context)
-                                                                .colorScheme
-                                                                .secondary,
+                                                        backgroundColor: red,
                                                         content: Text(
                                                           'Please select a valid input to continue.',
-                                                          style: appData
-                                                              .normalTextStyle
-                                                              .copyWith(
-                                                                  color: Colors
-                                                                      .white),
+                                                          style: defaultTSWhite,
                                                         ),
                                                       );
                                                       ScaffoldMessenger.of(
@@ -643,8 +629,7 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                 height: double.infinity,
                                                 width: double.infinity,
                                                 child: GridPaper(
-                                                  color: Colors.black
-                                                      .withOpacity(0.1),
+                                                  color: red.withOpacity(0.05),
                                                   divisions: 10,
                                                   interval: 800,
                                                   subdivisions: 8,
@@ -659,6 +644,11 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                     .width,
                                                 child: Column(
                                                   children: [
+                                                    isLoading
+                                                        ? LinearProgressIndicator(
+                                                      color: red,
+                                                    )
+                                                        : Container(),
                                                     Expanded(
                                                       child:
                                                           SingleChildScrollView(
@@ -687,9 +677,11 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                       child:
                                                                           Text(
                                                                         'No Payment Data Found!',
-                                                                        style: normalTextStyle.copyWith(
-                                                                            color:
-                                                                                Colors.grey),
+                                                                        style: defaultTS
+                                                                            .copyWith(
+                                                                          color:
+                                                                              black.withOpacity(.5),
+                                                                        ),
                                                                       ),
                                                                     )
                                                                   : SingleChildScrollView(
@@ -713,9 +705,12 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                             itemBuilder:
                                                                                 (context, index) {
                                                                               return Container(
-                                                                                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                                                                                padding: EdgeInsets.symmetric(horizontal: 10, vertical:0),
                                                                                 child: GestureDetector(
-                                                                                  onTap: () {
+                                                                                  onTap: () async{
+                                                                                    setState(() {
+                                                                                      isLoading = true;
+                                                                                    });
                                                                                     // Navigator.of(context)
                                                                                     //     .pushNamed(
                                                                                     //         OpenWebView.routeName,
@@ -729,26 +724,77 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                                                                     InvoiceProvider invoiceProvider = Provider.of<InvoiceProvider>(context, listen: false);
                                                                                     invoiceProvider.collection_id = provider.dataModelForPastPayment.data![index].id.toString();
                                                                                     invoiceProvider.getInvoice(context);
+                                                                                    await Future.delayed(
+                                                                                        Duration(seconds: 1));
+                                                                                    setState(() {
+                                                                                      isLoading = false;
+                                                                                    });
                                                                                   },
                                                                                   child: Card(
-                                                                                    elevation: 6,
+                                                                                    elevation: 4,
                                                                                     child: ListTile(
-                                                                                      trailing: CircleAvatar(
-                                                                                        backgroundColor: Theme.of(context).colorScheme.secondary,
-                                                                                        child: Text(
-                                                                                          '${provider.dataModelForPastPayment.data![index].totalPaidAmount!.substring(0, provider.dataModelForPastPayment.data![index].totalPaidAmount!.length - 3)}Tk',
-                                                                                          style: normalTextStyle.copyWith(color: Colors.white, fontSize: 10),
-                                                                                          textAlign: TextAlign.center,
-                                                                                        ),
+                                                                                      trailing: Icon(
+                                                                                        FontAwesomeIcons.download,
+                                                                                        color: red,
                                                                                       ),
-                                                                                      title: Text(
-                                                                                        'Receipt No: ${provider.dataModelForPastPayment.data![index].receiptNo}',
-                                                                                        style: normalHighLightTextStyle,
+                                                                                      leading: CircleAvatar(
+                                                                                        backgroundColor: black,
+                                                                                        // Color(
+                                                                                        //     (math.Random().nextDouble() * 0xFFFFFF)
+                                                                                        //         .toInt())
+                                                                                        //     .withOpacity(1.0),
+                                                                                        child: Text(
+                                                                                          (index + 1).toString(),
+                                                                                          style: headerTSWhite,
+                                                                                        ),
+                                                                                        radius: 23,
+                                                                                      ),
+                                                                                      title: Column(
+                                                                                        mainAxisAlignment:
+                                                                                        MainAxisAlignment
+                                                                                            .start,
+                                                                                        crossAxisAlignment:
+                                                                                        CrossAxisAlignment
+                                                                                            .start,
+                                                                                        children: [
+                                                                                          Row(
+                                                                                            children: [
+                                                                                              Text('Bill No: ',
+                                                                                                  style:
+                                                                                                  defaultTS),
+                                                                                              Text(
+                                                                                                '${provider.dataModelForPastPayment.data![index].receiptNo}',
+                                                                                                style:
+                                                                                                defaultHighLightedTS,
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                          Row(
+                                                                                            children: [
+                                                                                              Text('Total: ',
+                                                                                                  style:
+                                                                                                  defaultTS),
+                                                                                              Text(
+                                                                                                '${provider.dataModelForPastPayment.data![index].totalPaidAmount!.substring(0, provider.dataModelForPastPayment.data![index].totalPaidAmount!.length - 3)}',
+                                                                                                style:
+                                                                                                defaultHighLightedTS,
+                                                                                              ),
+                                                                                              Text('Tk.',
+                                                                                                  style:
+                                                                                                  defaultTS),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ],
                                                                                       ),
                                                                                       subtitle: Column(
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        crossAxisAlignment:
+                                                                                        CrossAxisAlignment
+                                                                                            .start,
                                                                                         children: [
-                                                                                          Text('Payed on: ${provider.dataModelForPastPayment.data![index].date}'),
+                                                                                          Text(
+                                                                                            'Payed on: ${provider.dataModelForPastPayment.data![index].date}',
+                                                                                            style: subtitleTS,
+                                                                                          ),
                                                                                         ],
                                                                                       ),
                                                                                     ),
@@ -793,8 +839,8 @@ class _DefaultPaymentState extends State<DefaultPayment>
 
   Widget bottomNavigationBar(BuildContext context) {
     return Container(
-      height: 30,
-      color: Theme.of(context).colorScheme.primary,
+      height: 35,
+      color: Theme.of(context).colorScheme.background,
       child: Consumer<DashboardProvider>(
         builder: (context, provider, childProperty) {
           return Row(
@@ -804,8 +850,8 @@ class _DefaultPaymentState extends State<DefaultPayment>
                 builder: (context, provider, child) {
                   return Flexible(
                     flex: 1,
-                    child: IconButton(
-                      onPressed: () {
+                    child: GestureDetector(
+                      onTap: () {
                         if (!provider.showAlertBox) {
                           if (provider.pageNoForPayment > 0) {
                             provider.showLoading = true;
@@ -814,14 +860,19 @@ class _DefaultPaymentState extends State<DefaultPayment>
                           }
                         }
                       },
-                      icon: Icon(
-                        FontAwesomeIcons.chevronLeft,
-                        color: provider.showAlertBox
-                            ? Colors.grey
-                            : provider.pageNoForPayment == 0
-                                ? Colors.grey.withOpacity(.2)
-                                : Theme.of(context).colorScheme.background,
-                        size: 17,
+                      child: Container(
+                        color: Colors.transparent,
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: Icon(
+                          FontAwesomeIcons.chevronLeft,
+                          color: provider.showAlertBox
+                              ? Colors.grey
+                              : provider.pageNoForPayment == 0
+                              ? Colors.grey.withOpacity(1)
+                              : black,
+                          size: 17,
+                        ),
                       ),
                     ),
                   );
@@ -834,20 +885,17 @@ class _DefaultPaymentState extends State<DefaultPayment>
                     builder: (context, notice, child) {
                       return Text('page: ${notice.pageNoForPayment + 1}',
                           style: notice.showAlertBox
-                              ? normalTextStyle.copyWith(
-                                  color: Colors.grey.withOpacity(.2))
-                              : normalTextStyle.copyWith(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .background));
+                              ? defaultTS.copyWith(
+                              color: Colors.grey.withOpacity(.2))
+                              : defaultTS);
                     },
                   ),
                 ),
               ),
               Flexible(
                 flex: 1,
-                child: IconButton(
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: () {
                     if (!provider.showAlertBox) {
                       if (provider.dataModelForPastPayment.data!.isNotEmpty) {
                         provider.showLoading = true;
@@ -856,12 +904,17 @@ class _DefaultPaymentState extends State<DefaultPayment>
                       }
                     }
                   },
-                  icon: Icon(
-                    FontAwesomeIcons.chevronRight,
-                    color: provider.showAlertBox
-                        ? Colors.grey.withOpacity(.2)
-                        : Theme.of(context).colorScheme.background,
-                    size: 17,
+                  child: Container(
+                    color: Colors.transparent,
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Icon(
+                      FontAwesomeIcons.chevronRight,
+                      color: provider.showAlertBox
+                          ? Colors.grey.withOpacity(.2)
+                          : black,
+                      size: 17,
+                    ),
                   ),
                 ),
               ),
