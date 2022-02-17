@@ -133,23 +133,15 @@ class _DefaultPaymentState extends State<DefaultPayment>
                                       controller: tabController,
                                       children: [
                                         SingleChildScrollView(
+                                          physics: BouncingScrollPhysics(),
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 20),
-                                                child: Text('💳 Payment',
-                                                    style: headerTSBlack),
-                                              ),
                                               Stepper(
+                                                physics: BouncingScrollPhysics(),
                                                 steps: [
                                                   Step(
                                                     isActive:

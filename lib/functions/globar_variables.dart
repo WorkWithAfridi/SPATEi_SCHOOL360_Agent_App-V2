@@ -9,7 +9,7 @@ Color silver = Color(0xff8d99ae);
 Color black = Color(0xff001233);
 
 TextStyle userNameTS = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 18,
@@ -18,27 +18,27 @@ TextStyle userNameTS = GoogleFonts.getFont(
 );
 
 TextStyle defaultTS = GoogleFonts.getFont(
-  'Open Sans',
-  textStyle: TextStyle(color: black, fontSize: 14, fontWeight: FontWeight.w400),
+  'Roboto',
+  textStyle: TextStyle(color: Colors.black87, fontSize: 14, fontWeight: FontWeight.w400),
 );
 TextStyle defaultTSWhite = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(color: white, fontSize: 14, fontWeight: FontWeight.w400),
 );
 
 TextStyle subtitleTS = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(
-      color: black.withOpacity(.7), fontSize: 12, fontWeight: FontWeight.w400),
+      color: Colors.black87.withOpacity(.7), fontSize: 12, fontWeight: FontWeight.w400),
 );
 
 TextStyle defaultHighLightedTS = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(color: red, fontSize: 14, fontWeight: FontWeight.w600),
 );
 
 TextStyle headerTSWhite = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 20,
@@ -46,15 +46,15 @@ TextStyle headerTSWhite = GoogleFonts.getFont(
   ),
 );
 TextStyle headerTSBlack = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 20,
-    color: black,
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: Colors.black87
   ),
 );
 TextStyle headerTSHighLight = GoogleFonts.getFont(
-  'Open Sans',
+  'Roboto',
   textStyle: TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 20,

@@ -36,7 +36,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       body: Stack(
         children: [
           // CarouselSlider.builder(
@@ -157,7 +157,9 @@ class Homepage extends StatelessWidget {
                       Text(
                         'Please scan a QR code to continue.',
                         style: defaultTS.copyWith(
-                            fontSize: 10, fontWeight: FontWeight.w600),
+                            color: Colors.black54,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 0,
@@ -326,24 +328,19 @@ class Homepage extends StatelessWidget {
                           Text(
                             'Terms & conditions',
                             style: defaultTS.copyWith(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                                color: Colors.black54,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
                             width: 5,
                           ),
                           Text(
                             '|',
-                            style: GoogleFonts.getFont(
-                              'Ubuntu',
-                              textStyle: TextStyle(
-                                  color:
-                                  // Theme.of(context).colorScheme.background.withOpacity(0.9),
-                                  Colors.black.withOpacity(0.6),
-                                  fontSize: 10,
-                                  height: .9,
-                                  wordSpacing: 1,
-                                  fontWeight: FontWeight.w700),
-                            ),
+                            style: defaultTS.copyWith(
+                                color: Colors.black54,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
                             width: 5,
@@ -351,7 +348,9 @@ class Homepage extends StatelessWidget {
                           Text(
                             'Privacy policy',
                             style: defaultTS.copyWith(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                                color: Colors.black54,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),

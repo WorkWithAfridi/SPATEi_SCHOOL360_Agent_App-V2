@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:school_360_app/functions/globar_variables.dart';
 import 'package:school_360_app/functions/payment.dart';
 import 'package:school_360_app/provider/appData.dart';
 import 'package:school_360_app/provider/qrcode_data.dart';
 import 'package:school_360_app/provider/school_hub_payment.dart';
-
-import '../../../../functions/globar_variables.dart';
 
 class PaymentDetailsPage extends StatefulWidget {
   static const routeName = '/school_hub/payment_tab/payment_details_page';
@@ -92,15 +91,15 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                         schoolId: qrCodeData.schoolId,
                         total: provider.total.toDouble(),
                         receipt_no:
-                            provider.data_model_for_fees.fees_data.receipt_no,
+                        provider.data_model_for_fees.fees_data.receipt_no,
                         context: context,
                         getPaymentGatewayCredential_url:
-                            'https://school360.app/${qrCodeData.schoolId}/service_bridge/getSSLPaymentGatewayCredential');
+                        'https://school360.app/${qrCodeData.schoolId}/service_bridge/getSSLPaymentGatewayCredential');
                   },
                   child: Container(
                     height: 40,
                     width: MediaQuery.of(context).size.width,
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: red,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
@@ -117,7 +116,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                           Icon(
                             FontAwesomeIcons.arrowRight,
                             size: 16,
-                            color: Theme.of(context).colorScheme.background,
+                            color: white,
                           ),
                         ],
                       ),
@@ -135,7 +134,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
   Container fullReceipt(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      padding: const EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 15, right: 15),
       child: Consumer<SchoolHubPaymentProvider>(
         builder: (context, provider, childProperty) {
           return SingleChildScrollView(
@@ -155,7 +154,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                       TextSpan(text: 'Name: ', style: defaultTS),
                       TextSpan(
                           text:
-                              '${provider.data_model_for_fees.student_info.name}.',
+                          '${provider.data_model_for_fees.student_info.name}.',
                           style: defaultHighLightedTS),
                     ],
                   ),
@@ -164,11 +163,10 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                   text: TextSpan(
                     style: DefaultTextStyle.of(context).style,
                     children: <TextSpan>[
-                      TextSpan(
-                          text: 'Receipt number: ', style: defaultTS),
+                      TextSpan(text: 'Receipt number: ', style: defaultTS),
                       TextSpan(
                           text:
-                              '${provider.data_model_for_fees.fees_data.receipt_no}.',
+                          '${provider.data_model_for_fees.fees_data.receipt_no}.',
                           style: defaultHighLightedTS),
                     ],
                   ),
@@ -241,9 +239,9 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                     color: Colors.transparent,
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                             provider
@@ -254,21 +252,21 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                             style: defaultTS),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             RichText(
                                               text: TextSpan(
                                                 style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
+                                                DefaultTextStyle.of(context)
+                                                    .style,
                                                 children: <TextSpan>[
                                                   TextSpan(
                                                       text:
-                                                          'Allocated Amount: ',
+                                                      'Allocated Amount: ',
                                                       style: defaultTS),
                                                   TextSpan(
                                                       text:
-                                                          '${provider.data_model_for_fees.fees_data.allocated_list[index].actual_allocated_amount_for_this_student}.',
+                                                      '${provider.data_model_for_fees.fees_data.allocated_list[index].actual_allocated_amount_for_this_student}.',
                                                       style:
                                                       defaultHighLightedTS),
                                                 ],
@@ -277,15 +275,15 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                             RichText(
                                               text: TextSpan(
                                                 style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
+                                                DefaultTextStyle.of(context)
+                                                    .style,
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'Already paid: ',
+                                                      text: 'Already Paid: ',
                                                       style: defaultTS),
                                                   TextSpan(
                                                       text:
-                                                          '${provider.data_model_for_fees.fees_data.allocated_list[index].already_paid_amount}.',
+                                                      '${provider.data_model_for_fees.fees_data.allocated_list[index].already_paid_amount}.',
                                                       style:
                                                       defaultHighLightedTS),
                                                 ],
@@ -294,15 +292,15 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                             RichText(
                                               text: TextSpan(
                                                 style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
+                                                DefaultTextStyle.of(context)
+                                                    .style,
                                                 children: <TextSpan>[
                                                   TextSpan(
                                                       text: 'Discount: ',
                                                       style: defaultTS),
                                                   TextSpan(
                                                       text:
-                                                          '${provider.data_model_for_fees.fees_data.allocated_list[index].already_discount_amount}.',
+                                                      '${provider.data_model_for_fees.fees_data.allocated_list[index].already_discount_amount}.',
                                                       style:
                                                       defaultHighLightedTS),
                                                 ],
@@ -324,13 +322,11 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                     style: DefaultTextStyle.of(context).style,
                                     children: <TextSpan>[
                                       TextSpan(
-                                          text: 'Total: ',
-                                          style: defaultTS),
+                                          text: 'Total: ', style: defaultTS),
                                       TextSpan(
                                           text: (provider.total).toString(),
                                           style: defaultHighLightedTS),
-                                      TextSpan(
-                                          text: 'TK.', style: defaultTS),
+                                      TextSpan(text: 'TK.', style: defaultTS),
                                     ],
                                   ),
                                 ),
@@ -347,47 +343,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                               height: 1,
                             ),
                             const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: 100,
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                color: silver.withOpacity(.25),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    'Total: ',
-                                    style: headerTSBlack.copyWith(fontSize: 25),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        provider.total.toString(),
-                                        style: defaultHighLightedTS.copyWith(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w800,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' Tk.',
-                                        style: defaultTS.copyWith(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 50,
+                              height: 5,
                             ),
                           ],
                         );
@@ -396,8 +352,45 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                     const SizedBox(
                       height: 10,
                     ),
+                    Container(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: silver.withOpacity(.25),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Total: ',
+                            style: headerTSBlack.copyWith(fontSize: 25),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                provider.total.toString(),
+                                style: defaultHighLightedTS.copyWith(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                ' Tk.',
+                                style: defaultTS.copyWith(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(
-                      height: 10,
+                      height: 50,
                     ),
                   ],
                 ),
