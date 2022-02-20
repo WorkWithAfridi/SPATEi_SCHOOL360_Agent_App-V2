@@ -25,7 +25,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          // physics: BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,36 +39,63 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15.0, vertical: 5),
-                      child: Text(
-                        'Good Morning!',
-                        style: defaultTSWhite,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Text(
-                        'Someuser username',
-                        style: headerTSWhite,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15.0, vertical: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            'Agent id: ',
-                            style: defaultTSWhite,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0, vertical: 5),
+                                child: Text(
+                                  'Good Morning!',
+                                  style: defaultTSWhite,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0),
+                                child: Text(
+                                  'Someuser username',
+                                  style: headerTSWhite,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0, vertical: 5),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Agent id: ',
+                                      style: defaultTSWhite,
+                                    ),
+                                    Text(
+                                      '1820461 ',
+                                      style: defaultHighLightedTS,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '1820461 ',
-                            style: defaultHighLightedTS,
-                          ),
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1448&q=80',
+                                ),
+                                radius: 40,
+                              ),
+                              SizedBox(width: 10,)
+                            ],
+                          )
                         ],
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
