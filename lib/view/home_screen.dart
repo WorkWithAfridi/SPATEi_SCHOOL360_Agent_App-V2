@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:school_360_app/view/dashboard/dashboard_screen.dart';
 import 'package:school_360_app/view/scanner/scanner_screen.dart';
 
 import '../functions/globar_variables.dart';
@@ -67,11 +68,18 @@ class Homepage extends StatelessWidget {
           //     scrollDirection: Axis.horizontal,
           //   ),
           // ),
-          SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: Lottie.asset(
-                  'lib/assets/lottieAnimation/lottieMakePayment.json')),
+          Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 6.5,
+              ),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height / 2,
+                  width: double.infinity,
+                  child: Lottie.asset(
+                      'lib/assets/lottieAnimation/lottieMakePayment.json')),
+            ],
+          ),
           Container(
             height: double.infinity,
             width: double.infinity,
@@ -153,14 +161,14 @@ class Homepage extends StatelessWidget {
                       //   ],
                       //   repeatForever: true,
                       //   isRepeatingAnimation: true,
+                      // // ),
+                      // Text(
+                      //   'Please scan a QR code to continue.',
+                      //   style: defaultTS.copyWith(
+                      //       color: Colors.black54,
+                      //       fontSize: 10,
+                      //       fontWeight: FontWeight.w600),
                       // ),
-                      Text(
-                        'Please scan a QR code to continue.',
-                        style: defaultTS.copyWith(
-                            color: Colors.black54,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w600),
-                      ),
                       const SizedBox(
                         height: 0,
                       ),
@@ -185,7 +193,7 @@ class Homepage extends StatelessWidget {
                               ),
                             ),
                             width: double.infinity,
-                            height: MediaQuery.of(context).size.height * .09,
+                            height: 55,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -235,7 +243,7 @@ class Homepage extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15))),
                         elevation: 10,
-                        color: Theme.of(context).colorScheme.onBackground,
+                        color: Colors.transparent,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushNamed(QRScanner.routeName,
@@ -250,7 +258,7 @@ class Homepage extends StatelessWidget {
                               ),
                             ),
                             width: double.infinity,
-                            height: MediaQuery.of(context).size.height * .09,
+                            height: 55,
                             child: Stack(
                               children: [
                                 SizedBox(
@@ -301,6 +309,101 @@ class Homepage extends StatelessWidget {
 
                                             Text(
                                               'Make Payment',
+                                              style: headerTSBlack.copyWith(
+                                                  fontSize: 15),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Icon(
+                                        FontAwesomeIcons.arrowRight,
+                                        size: 20,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        elevation: 10,
+                        color: Colors.transparent,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(DashboardScreen.routeName);
+                          },
+                          child: Container(
+                            // padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.background,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(5),
+                              ),
+                            ),
+                            width: double.infinity,
+                            height: 55,
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  child: GridPaper(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary
+                                        .withOpacity(.1),
+                                    divisions: 4,
+                                    interval: 500,
+                                    subdivisions: 8,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: double.infinity,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            // Icon(
+                                            //   FontAwesomeIcons.barcode,
+                                            //   color: Theme.of(context)
+                                            //       .colorScheme
+                                            //       .secondary,
+                                            //   size: MediaQuery.of(context)
+                                            //           .size
+                                            //           .height *
+                                            //       .055,
+                                            // ),
+
+                                            SizedBox(
+                                              height: double.infinity,
+                                              child: Lottie.asset(
+                                                  'lib/assets/lottieAnimation/lottieAgentDashboardAnimation.json'),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+
+                                            Text(
+                                              'Dashboard',
                                               style: headerTSBlack.copyWith(
                                                   fontSize: 15),
                                             ),

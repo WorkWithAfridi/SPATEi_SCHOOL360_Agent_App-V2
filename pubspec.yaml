@@ -53,6 +53,7 @@ dependencies:
   liquid_pull_to_refresh: any
   pdf: any
   change_app_package_name: ^1.0.0
+  shared_preferences: any
 
 dev_dependencies:
   flutter_test:

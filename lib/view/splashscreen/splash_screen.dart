@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:school_360_app/view/home_screen.dart';
+import 'package:school_360_app/view/login/logInWithUserCredentials_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../provider/qrcode_data.dart';
 import '../scanner/scanner_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,12 +18,39 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void triggerSplashScreen(BuildContext context) async {
     await Future.delayed(const Duration(milliseconds: 800));
-    Navigator.pushReplacementNamed(
-      context,
-      Homepage.routeName,
-    );
+    checkIfLoggedIn();
   }
 
+  void checkIfLoggedIn() async {
+    print('before shared pref init');
+
+    final prefs = await SharedPreferences.getInstance();
+    print('after shared pref init');
+    String? schoolId = await prefs.getString('AgentId');
+    String? studentId = await prefs.getString('AgentPassword');
+    String? studentName = await prefs.getString('AgentName');
+    if (studentId == null || studentName == null || schoolId == null) {
+      print('pushing to login screen');
+      Navigator.pushReplacementNamed(
+        context,
+        LogInWithUserCredentials.routeName,
+      );
+    } else {
+      QRCodeDataProvider qrCodeData =
+      Provider.of<QRCodeDataProvider>(context, listen: false);
+      qrCodeData.studentId = studentId;
+      qrCodeData.studentName = studentName;
+      qrCodeData.schoolId = schoolId;
+      print('User found');
+      print(studentId);
+      print(studentName);
+      print(schoolId);
+      Navigator.pushReplacementNamed(
+        context,
+       Homepage.routeName,
+      );
+    }
+  }
   @override
   void initState() {
     // TODO: implement initState

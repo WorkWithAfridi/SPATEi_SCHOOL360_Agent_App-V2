@@ -145,7 +145,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 7.0),
-                  child: Text('Payment Summary.', style: headerTSBlack),
+                  child: Text('Payment Summary', style: headerTSBlack),
                 ),
                 RichText(
                   text: TextSpan(
@@ -186,7 +186,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text('Bill Summary.', style: headerTSBlack),
+                Text('Bill Summary', style: headerTSBlack),
                 const SizedBox(
                   height: 5,
                 ),
@@ -205,7 +205,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                       Expanded(
                         child: Container(
                           alignment: Alignment.centerLeft,
-                          child: Text('Summary', style: headerTSWhite),
+                          child: Text('Details', style: headerTSWhite),
                         ),
                       ),
                     ],
